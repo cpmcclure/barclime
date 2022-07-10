@@ -11,6 +11,9 @@
 //     console.log(weather)
 // }
 // getWeather()
+const press = document.querySelector('#pressure')
+const temp = document.querySelector('#temperature')
+const humid = document.querySelector('#humidity')
 
 const zip = '04101'
 const key = 'ba1b4ca1617f4a2ea88192125220707&'
@@ -24,6 +27,9 @@ async function getWeather(){
     const inches = weather.current.pressure_in
     const humidity = weather.current.humidity
     console.log(weather)
+    press.textContent = millibars
+    temp.textContent = celsius
+    humid.textContent = humidity
     console.log(celsius, fahrenheit, millibars, inches, humidity)
 }
 getWeather()

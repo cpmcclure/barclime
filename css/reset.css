@@ -45,3 +45,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* Remove range styling */
+input[type="range"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background: transparent;
+	cursor: pointer;
+	width: 15rem;
+  }

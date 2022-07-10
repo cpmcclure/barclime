@@ -8,11 +8,46 @@
 		<title>Barista Weather</title>
 
 		<!-- external CSS link -->
-		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-
+		<section class="center">
+			<h1>BarClime</h1>
+			<section class="col-3">
+				<section class="display">
+					<h2>Current Pressure</h2>
+					<span id="pressure"></span>
+				</section>
+				<section class="display">
+					<h2>Current Humidity</h2>
+					<span id="humidity"></span>
+				</section>
+				<section class="display">
+					<h2>Current Temperature</h2>
+					<span id="temperature"></span>
+				</section>
+			</section>
+		</section>
+		<section class="center">
+			<form action="" method="put" id="data">
+				<input type="range" name="grind" id="grind" min="0" max="11">
+				<label for="grind">Grind</label>
+				<input type="range" name="dose" id="dose" min="20" max="26">
+				<label for="dose">Dose</label>
+				<input type="range" name="shotWeight" id="shotWeight" min="35" max="42">
+				<label for="shotWeight">Shot Weight</label>
+				<input type="range" name="pullTime" id="pullTime" min="22" max="28">
+				<label for="pullTime">Pull Time</label>
+				<input type="date" name="roastDate" id="roastDate">
+				<label for="roastDate">Roast Date</label>
+				<input type="datetime" name="currentTime" id="currentTime" hidden>
+				<input type="number" name="tempIn" id="tempIn">
+				<input type="number" name="pressIn" id="pressIn">
+				<input type="number" name="humidIn" id="humidIn">
+				<button>Add Specs</button>
+			</form>
+		</section>
 
 		<img src="" alt="">
 
