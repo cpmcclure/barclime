@@ -12,7 +12,7 @@
 /* LAYOUT
 /*******************************************/
 h1 {
-  padding: 20px;
+  margin: 20px;
 }
 
 .center {
@@ -20,18 +20,52 @@ h1 {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin: 20px 0;
 }
 
 .col-3 {
   display: flex;
   justify-content: space-around;
-  width: 80%;
+  width: 75%;
+  margin: 20px 0;
 }
 
 .display {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.legend {
+  margin-bottom: 15px;
+}
+
+.fieldColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fieldRow {
+  justify-content: space-evenly;
+  padding: 15px 0;
+}
+
+.fieldRow > label {
+  display: inline-block;
+  width: 100px;
+  text-align: left;
+}
+
+.fieldRow > output {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+}
+
+.formButton {
+  width: 100px;
+  margin: 20px 50% 10px 50%;
 }
 
 img{
