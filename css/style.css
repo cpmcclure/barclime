@@ -7,6 +7,58 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: white;
+  background: #93C1BF;
+}
+
+/* Base Fonts */
+h1,
+h3,
+.display > span {
+  font-family: 'Cairo', sans-serif;
+}
+
+h2,
+label,
+output,
+button {
+  font-family: 'Basic', sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 3.6rem;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.display > span {
+  font-size: 4rem;
+}
+
+label,
+output {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+}
+
+button {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
 
 /******************************************
 /* LAYOUT
@@ -20,52 +72,92 @@ h1 {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: 20px 0;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  padding: 25px 0 0 0;
 }
 
 .col-3 {
   display: flex;
   justify-content: space-around;
-  width: 75%;
-  margin: 20px 0;
+  width: 100%;
+  padding: 10px 0;
 }
 
 .display {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-basis: 30%;
+  padding: 0 0 10px;
+  border-radius: 10px;
+}
+
+.display h3{
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 15px;
 }
 
 .legend {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
 }
 
 .fieldColumn {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .fieldRow {
-  justify-content: space-evenly;
+  width: 300px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around; */
+  gap: 15px;
   padding: 15px 0;
 }
 
 .fieldRow > label {
   display: inline-block;
-  width: 100px;
-  text-align: left;
+  text-align: right;
 }
 
 .fieldRow > output {
   display: inline-block;
-  width: 100px;
-  text-align: center;
+  text-align: left;
+}
+
+.fieldRow > input[type=range] {
+  width: 300px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.fieldRow:last-of-type {
+  width: 350px;
+  margin-top: 10px;
 }
 
 .formButton {
   width: 100px;
-  margin: 20px 50% 10px 50%;
+  margin: 10px 50% 10px 50%;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 
 img{
@@ -78,9 +170,8 @@ img{
 /* ADDITIONAL STYLES
 /*******************************************/
 
-body {
-  color: white;
-  background: #EBCAA4;
+.header {
+  background-color: #2B3A67;
 }
 
 .weather {
@@ -88,58 +179,66 @@ body {
 }
 
 .display {
-  background: #66999B;
+  background: #8FCCE1;
 }
 
-.dataInput {
+.display h3 {
+  background-color: #2B3A67;
+}
+
+.legend {
+  background-color: #90B38F;
+}
+
+/* .dataInput {
   background: #B3AF8F;
-}
-
-.fieldColumn > :nth-child(odd) {
-  background: #EBCAA4;
-}
+} */
 
 .formButton {
-  background-color: #2B3A67;
+  background-color: #90B38F;
   color: white;
 }
 
-/*
-SLIDERS
-*/
+/*********************
+INPUT STYLES
+*********************/
 
 input[type=range]::-webkit-slider-runnable-track {
-  /* width: 100%;*/
-  height: 15px;
+  -webkit-appearance: none;
+  width: 300px;
+  height: 30px;
   cursor: pointer;
   /* animate: 0.2s; */
-  box-shadow: 1px 1px 1px #000000;
-  background: #66999B;
-  border-radius: 0px;
+  /* box-shadow: 1px 1px 1px #000000; */
+  border: #90B38F 3px solid;
+  background: #DDE7CF;
+  border-radius: 5px;
   /* border: 1px solid #000000; */
 }
 input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: 14px;
   box-shadow: 1px 1px 1px #000000;
   border: 1px solid #000000;
-  height: 24px;
-  width: 22px;
-  border-radius: 13px;
-  background: #66999B;
+  height: 40px;
+  width: 20px;
+  border-radius: 5px;
+  background: #2B3A67;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -8px;
 }
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #66999B;
-}
+
+/* input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #DDE7CF;
+} */
 
 input[type=range]::-moz-range-track {
   width: 100%;
   height: 10px;
   cursor: pointer;
-  animate: 0.2s;
   box-shadow: 1px 1px 1px #000000;
-  background: #3071A9;
+  background: #DDE7CF;
   border-radius: 5px;
   border: 1px solid #000000;
 }
@@ -151,4 +250,22 @@ input[type=range]::-moz-range-thumb {
   border-radius: 13px;
   background: #FFFFFF;
   cursor: pointer;
+}
+
+input[type=date] {
+  all: unset;
+  width: 67%;
+  font-family: 'Basic', sans-serif;
+  font-size: 2rem;
+  background-color: #496A81;
+  color: #FFFFFF;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: -7.5px;
+  border-radius: 10px;
+}
+::-webkit-calendar-picker-indicator{
+  display: none;
+  background-color: white;
 }

@@ -27,9 +27,9 @@ async function getWeather(){
     const inches = weather.current.pressure_in
     const humidity = weather.current.humidity
     console.log(weather)
-    press.textContent = millibars
-    temp.textContent = celsius
-    humid.textContent = humidity
+    press.textContent = inches + 'in'
+    temp.textContent = fahrenheit + 'º'
+    humid.textContent = humidity + '%'
     console.log(celsius, fahrenheit, millibars, inches, humidity)
 }
 getWeather()

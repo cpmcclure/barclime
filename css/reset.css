@@ -46,11 +46,16 @@ table {
 	border-spacing: 0;
 }
 
+/* Remove button styling */
+button {
+	all: unset
+}
+
 /* Remove range styling */
 input[type="range"] {
-	/* this prevents tickmarks – fix this later! 
+	/* this prevents tickmarks – fix this later!  */
 	-webkit-appearance: none;
-	appearance: none; */
+	appearance: none;
 	background: transparent;
 	cursor: pointer;
 	width: 15rem;
