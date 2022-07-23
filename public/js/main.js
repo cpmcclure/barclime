@@ -11,6 +11,8 @@
 //     console.log(weather)
 // }
 // getWeather()
+
+
 const press = document.querySelector('#pressure')
 const temp = document.querySelector('#temperature')
 const humid = document.querySelector('#humidity')

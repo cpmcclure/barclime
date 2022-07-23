@@ -44,7 +44,7 @@
 		<section class="center dataInput">
 			<h2 class="legend">Dial In</h2>
 
-			<form action="" method="put" id="data">
+			<form action="/add" method="POST" id="data">
 				<fieldset class="fieldColumn">
 					<div class="fieldRow">
 						<label for="grind">Grind:</label>
@@ -120,7 +120,7 @@
 					<input type="number" name="tempIn" id="tempIn" hidden>
 					<input type="number" name="pressIn" id="pressIn" hidden>
 					<input type="number" name="humidIn" id="humidIn" hidden>
-					<button class="formButton">Add</button>
+					<button type="submit" class="formButton">Add</button>
 				</fieldset>
 			</form>
 		</section>

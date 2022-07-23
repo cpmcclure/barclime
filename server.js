@@ -1,13 +1,19 @@
-const express = require('express')
-const cors = require('cors')
+const express = require('express');
+const app = express();
+// const cors = require('cors')
 
-const app = express()
-app.use(cors)
+// app.use(cors)
+
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + 'index.html')
+    res.sendFile(__dirname + '/index.html')
 })
 
-app.listen(3000, function(){
+app.post('/add', (req, res) => {
+    console.log('Success')
+})
+
+app.listen(3005, function(){
     console.log('listening on 3000')
 })
