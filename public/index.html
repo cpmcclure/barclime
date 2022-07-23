@@ -116,11 +116,11 @@
 						<label for="roastDate">Roast Date:</label>
 						<input type="date" name="roastDate" id="roastDate">
 					</div>
-					<input type="datetime" name="currentTime" id="currentTime" hidden>
-					<input type="number" name="tempIn" id="tempIn" hidden>
-					<input type="number" name="pressIn" id="pressIn" hidden>
-					<input type="number" name="humidIn" id="humidIn" hidden>
-					<button type="submit" class="formButton">Add</button>
+					<input type="datetime-local" name="currentTime" id="currentTime" hidden>
+					<input type="number" name="tempIn" id="tempIn" step=".01" hidden>
+					<input type="number" name="pressIn" id="pressIn" step=".01" hidden>
+					<input type="number" name="humidIn" id="humidIn" step=".01" hidden>
+					<button type="submit" class="formButton" id="submitButton">Add</button>
 				</fieldset>
 			</form>
 		</section>

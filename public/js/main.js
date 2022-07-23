@@ -12,10 +12,16 @@
 // }
 // getWeather()
 
+const button = document.querySelector('#submitButton')
+button.addEventListener('click', getWeather)
 
 const press = document.querySelector('#pressure')
 const temp = document.querySelector('#temperature')
 const humid = document.querySelector('#humidity')
+const dateIn = document.querySelector('#currentTime')
+const tempIn = document.querySelector('#tempIn')
+const pressIn = document.querySelector('#pressIn')
+const humidIn = document.querySelector('#humidIn')
 
 const zip = '04101'
 const key = 'ba1b4ca1617f4a2ea88192125220707&'
@@ -23,15 +29,25 @@ const key = 'ba1b4ca1617f4a2ea88192125220707&'
 async function getWeather(){
     const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${key}q=${zip}&days=1&aqi=no&alerts=no`)
     const weather = await res.json()
+    // Get select weather data in both imperial and metric
     const celsius= weather.current.temp_c
     const fahrenheit = weather.current.temp_f
     const millibars = weather.current.pressure_mb
     const inches = weather.current.pressure_in
     const humidity = weather.current.humidity
-    console.log(weather)
+
+    // Set display values
     press.textContent = inches + 'in'
     temp.textContent = fahrenheit + 'º'
     humid.textContent = humidity + '%'
-    console.log(celsius, fahrenheit, millibars, inches, humidity)
+
+    // Set form values
+    let now = new Date().toISOString().split(':').slice(0, 2).join(':')
+    console.log(now)
+    dateIn.value = now
+    tempIn.value = fahrenheit
+    pressIn.value = inches
+    humidIn.value = humidity
 }
-getWeather()
+
+window.onload = getWeather
