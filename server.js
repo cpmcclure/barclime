@@ -31,6 +31,8 @@ MongoClient.connect(dbConnectionStr)
 
 // Get  
 app.get('/', (req, res) => {
+    const mostRecent = collection.find().sort({"currentTime":1}).limit(1)
+    console.log(mostRecent)
     res.sendFile(__dirname + '/index.html')
 })
 

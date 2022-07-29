@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Barista Weather</title>
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com"> 
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+		<link href="https://fonts.googleapis.com/css2?family=Basic&family=Cairo&display=swap" rel="stylesheet">
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+
+		<section class="center">
+			
+			<nav class="header">
+				<h1>BarClime</h1>
+			</nav>
+
+			<section class="col-3 weather">
+				<section class="display">
+					<h3>Temp</h3>
+					<span id="temperature"></span>
+				</section>
+				<section class="display">
+					<h3>Pressure</h3>
+					<span id="pressure"></span>
+				</section>
+				<section class="display">
+					<h3>Humidity</h3>
+					<span id="humidity"></span>
+				</section>
+			</section>
+
+		</section>
+
+		<section class="center dataInput">
+			<h2 class="legend">Dial In</h2>
+
+			<form action="/add" method="POST" id="data">
+				<fieldset class="fieldColumn">
+					<div class="fieldRow">
+						<label for="grind">Grind:</label>
+						<output>—</output>
+						<input type="range" name="grind" id="grind" min="1" max="10" step=".1" oninput="this.previousElementSibling.value = this.value" list="tickmarksGrind">
+						<!-- <datalist id="tickmarksGrind">
+							<option value="1" label="1"></option>
+							<option value="2"></option>
+							<option value="3"></option>
+							<option value="4"></option>
+							<option value="5"></option>
+							<option value="6" label="6"></option>
+							<option value="7"></option>
+							<option value="8"></option>
+							<option value="9"></option>
+							<option value="10"></option>
+							<option value="11" label="11"></option>
+							</datalist> -->
+					</div>
+					<div class="fieldRow">
+						<label for="dose">Dose:</label>
+						<output>—</output>
+						<input type="range" name="dose" id="dose" min="20.0" max="26.0" step=".1" oninput="this.previousElementSibling.value = this.value" list="tickmarksDose">
+						<!-- <datalist id="tickmarksDose">
+							<option value="20" label="20"></option>
+							<option value="21"></option>
+							<option value="22"></option>
+							<option value="23" label="23"></option>
+							<option value="24"></option>
+							<option value="25"></option>
+							<option value="26" label="26"></option>
+							</datalist> -->
+					</div>
+					<div class="fieldRow">
+						<label for="weight">Weight:</label>
+						<output>—</output>
+						<input type="range" name="weight" id="weight" min="34" max="42" step=".1" oninput="this.previousElementSibling.value = this.value" list="tickmarksWeight">
+						<!-- <datalist id="tickmarksWeight">
+							<option value="34" label="34"></option>
+							<option value="35"></option>
+							<option value="36"></option>
+							<option value="37"></option>
+							<option value="38" label="38"></option>
+							<option value="39"></option>
+							<option value="40"></option>
+							<option value="41"></option>
+							<option value="42" label="42"></option>
+							</datalist> -->
+					</div>
+					<div class="fieldRow">
+						<label for="time">Time:</label>
+						<output>—</output>
+						<input type="range" name="time" id="time" min="20" max="30" step="1" oninput="this.previousElementSibling.value = this.value" list="tickmarksTime">
+						<!-- <datalist id="tickmarksTime">
+							<option value="20" label="20"></option>
+							<option value="21"></option>
+							<option value="22"></option>
+							<option value="23"></option>
+							<option value="24"></option>
+							<option value="25" label="25"></option>
+							<option value="26"></option>
+							<option value="27"></option>
+							<option value="28"></option>
+							<option value="29"></option>
+							<option value="30" label="30"></option>
+							</datalist> -->
+					</div>
+					<div class="fieldRow">
+						<label for="roastDate">Roast Date:</label>
+						<input type="date" name="roastDate" id="roastDate">
+					</div>
+					<input type="datetime-local" name="currentTime" id="currentTime" hidden>
+					<input type="number" name="tempIn" id="tempIn" step=".01" hidden>
+					<input type="number" name="pressIn" id="pressIn" step=".01" hidden>
+					<input type="number" name="humidIn" id="humidIn" step=".01" hidden>
+					<button type="submit" class="formButton" id="submitButton">Add</button>
+				</fieldset>
+			</form>
+		</section>
+
+		<img src="" alt="">
+
+
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
