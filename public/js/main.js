@@ -23,6 +23,16 @@ const tempIn = document.querySelector('#tempIn')
 const pressIn = document.querySelector('#pressIn')
 const humidIn = document.querySelector('#humidIn')
 
+const grind = document.querySelector('#grind')
+const dose = document.querySelector('#dose')
+const weight = document.querySelector('#weight')
+const time = document.querySelector('#time')
+
+const grindOut = document.querySelector('#grindOut')
+const doseOut = document.querySelector('#doseOut')
+const weightOut = document.querySelector('#weightOut')
+const timeOut = document.querySelector('#timeOut')
+
 const zip = '04101'
 const key = 'ba1b4ca1617f4a2ea88192125220707&'
 
@@ -50,4 +60,13 @@ async function getWeather(){
     humidIn.value = humidity
 }
 
-window.onload = getWeather
+function setSliderDisplay(){
+    grindOut.textContent = grind.value
+    doseOut.textContent = dose.value
+    weightOut.textContent = weight.value
+    timeOut.textContent = time.value
+}
+
+
+window.onload = setSliderDisplay()
+window.onload = getWeather()
