@@ -36,9 +36,9 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
 
 // Get  
 app.get('/', async(request, response)=>{
-    let shotData = await db.collection("shot-data").findOne();
-    response.render('index.ejs', { lastShot: shotData })
-    // res.sendFile(__dirname + '/index.html')
+    let shotData = await db.collection("shot-data").find().limit(1).sort({currentTime:-1}).toArray();
+    console.log(shotData)
+    response.render('index.ejs', { lastShot: shotData[0] })
 })
 
 // Post

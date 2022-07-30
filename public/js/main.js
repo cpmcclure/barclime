@@ -47,7 +47,7 @@ async function getWeather(){
     const humidity = weather.current.humidity
 
     // Set display values
-    press.textContent = inches + 'in'
+    press.textContent = inches.toFixed(1) + 'in'
     temp.textContent = fahrenheit + 'º'
     humid.textContent = humidity + '%'
 

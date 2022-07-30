@@ -49,6 +49,11 @@ h3 {
   font-size: 4rem;
 }
 
+.inches {
+  display: inline;
+  font-size: 1rem;
+}
+
 label,
 output {
   font-size: 2.4rem;
@@ -82,7 +87,7 @@ h1 {
 
 .col-3 {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 100%;
   padding: 10px 0;
 }
@@ -102,6 +107,14 @@ h1 {
   padding: 10px;
   border-radius: 10px 10px 0 0;
   margin-bottom: 15px;
+}
+
+span {
+  display: inline-block;
+}
+
+.press {
+  display: flex;
 }
 
 .legend {
