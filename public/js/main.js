@@ -67,6 +67,5 @@ function setSliderDisplay(){
     timeOut.textContent = time.value
 }
 
-
 window.onload = setSliderDisplay()
 window.onload = getWeather()

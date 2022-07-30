@@ -49,22 +49,22 @@
 					<div class="fieldRow">
 						<label for="grind">Grind:</label>
 						<output class="output" id="grindOut">—</output>
-						<input type="range" name="grind" id="grind" min="1" max="10" step=".1" oninput="this.previousElementSibling.value = this.value" list="tickmarksGrind" value="<%= lastShot.grind %>">
+						<input type="range" name="grind" id="grind" min="1" max="10" step=".1" oninput="this.previousElementSibling.value = this.value" value="<%= lastShot.grind %>">
 					</div>
 					<div class="fieldRow">
 						<label for="dose">Dose:</label>
 						<output class="output" id="doseOut">—</output>
-						<input type="range" name="dose" id="dose" min="20.0" max="26.0" step=".1" oninput="this.previousElementSibling.value = this.value" list="tickmarksDose" value="<%= lastShot.dose %>">
+						<input type="range" name="dose" id="dose" min="20.0" max="26.0" step=".1" oninput="this.previousElementSibling.value = this.value" value="<%= lastShot.dose %>">
 					</div>
 					<div class="fieldRow">
 						<label for="weight">Weight:</label>
 						<output class="output" id="weightOut">—</output>
-						<input type="range" name="weight" id="weight" min="34" max="42" step=".1" oninput="this.previousElementSibling.value = this.value" list="tickmarksWeight" value="<%= lastShot.weight %>">
+						<input type="range" name="weight" id="weight" min="34" max="42" step=".1" oninput="this.previousElementSibling.value = this.value" value="<%= lastShot.weight %>">
 					</div>
 					<div class="fieldRow">
 						<label for="time">Time:</label>
 						<output class="output" id="timeOut">—</output>
-						<input type="range" name="time" id="time" min="20" max="30" step="1" oninput="this.previousElementSibling.value = this.value" list="tickmarksTime" value="<%= lastShot.time %>">
+						<input type="range" name="time" id="time" min="20" max="30" step="1" oninput="this.previousElementSibling.value = this.value" value="<%= lastShot.time %>">
 					</div>
 					<div class="fieldRow">
 						<label for="roastDate">Roast Date:</label>
