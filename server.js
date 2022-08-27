@@ -8,6 +8,7 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
+const dashRoutes = require('./routes/dash')
 const PORT = 3001
 
 require('dotenv').config({path: './config/.env'})
@@ -39,24 +40,8 @@ app.use(passport.session())
 app.use(flash())
   
 app.use('/', mainRoutes)
+app.use('/dash', dashRoutes)
  
 app.listen(process.env.PORT || PORT, ()=>{
     console.log('Server is running, you better catch it!')
 })    
-
-// Get  
-app.get('/', async(request, response)=>{
-    let shotData = await db.collection("shot-data").find().limit(1).sort({currentTime:-1}).toArray();
-    console.log(shotData)
-    response.render('index.ejs', { lastShot: shotData[0] })
-})
-
-// Post
-app.post('/add', (req, res) => {
-    db.collection('shot-data').insertOne(req.body)
-    .then(result => {
-        console.log(req.body)
-        res.redirect('/')
-    })
-    .catch(error => console.error(error))
-})
