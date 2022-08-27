@@ -44,19 +44,19 @@ app.listen(process.env.PORT || PORT, ()=>{
     console.log('Server is running, you better catch it!')
 })    
 
-// // Get  
-// app.get('/', async(request, response)=>{
-//     let shotData = await db.collection("shot-data").find().limit(1).sort({currentTime:-1}).toArray();
-//     console.log(shotData)
-//     response.render('index.ejs', { lastShot: shotData[0] })
-// })
+// Get  
+app.get('/', async(request, response)=>{
+    let shotData = await db.collection("shot-data").find().limit(1).sort({currentTime:-1}).toArray();
+    console.log(shotData)
+    response.render('index.ejs', { lastShot: shotData[0] })
+})
 
-// // Post
-// app.post('/add', (req, res) => {
-//     db.collection('shot-data').insertOne(req.body)
-//     .then(result => {
-//         console.log(req.body)
-//         res.redirect('/')
-//     })
-//     .catch(error => console.error(error))
-// })
+// Post
+app.post('/add', (req, res) => {
+    db.collection('shot-data').insertOne(req.body)
+    .then(result => {
+        console.log(req.body)
+        res.redirect('/')
+    })
+    .catch(error => console.error(error))
+})
