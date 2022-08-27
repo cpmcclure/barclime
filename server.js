@@ -1,59 +1,62 @@
-// Add libraries
-const express = require('express');
-const bodyParser = require('body-parser')
-const MongoClient = require('mongodb').MongoClient
-require('dotenv').config()
-
+const express = require('express')
+const app = express()
+const mongoose = require('mongoose')
+const passport = require('passport')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
+const flash = require('express-flash')
+const logger = require('morgan')
+const connectDB = require('./config/database')
+const mainRoutes = require('./routes/main')
 const PORT = 3001
 
-// const cors = require('cors')
-// app.use(cors)
+require('dotenv').config({path: './config/.env'})
 
-// Use libraries / middleware
-const app = express();
-// app.use(bodyParser.urlencoded({extended: true}))
-app.use(express.urlencoded({ extended: true }))
-app.use(express.static('public'))
-app.use(express.json())
+// Passport config
+require('./config/passport')(passport)
+
+connectDB()
+
 app.set('view engine', 'ejs')
-
-let db
-let dbConnectionStr = process.env.DB_STRING
-let dbName = 'barclime'
-
-// Set up database
-MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
-    .then(client => {
-        console.log(`Connected to ${dbName} database`)
-        // assign db to connected db for later use
-        db = client.db(dbName)
-        // shotData = db.collection('shot-data')
-        // shotData = db.collection("shot-data").findOne({}, function(err, result) {
-        //     if (err) throw err;
-        //     console.log(result)
-        //   });
+app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(logger('dev'))
+// Sessions
+app.use(
+    session({
+      secret: 'keyboard cat',
+      resave: false,
+      saveUninitialized: false,
+      store: new MongoStore({ mongooseConnection: mongoose.connection }),
     })
+  )
+  
+// Passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
 
-// Get  
-app.get('/', async(request, response)=>{
-    let shotData = await db.collection("shot-data").find().limit(1).sort({currentTime:-1}).toArray();
-    console.log(shotData)
-    response.render('index.ejs', { lastShot: shotData[0] })
-})
+app.use(flash())
+  
+app.use('/', mainRoutes)
+ 
+app.listen(process.env.PORT || PORT, ()=>{
+    console.log('Server is running, you better catch it!')
+})    
 
-// Post
-app.post('/add', (req, res) => {
-    db.collection('shot-data').insertOne(req.body)
-    .then(result => {
-        console.log(req.body)
-        res.redirect('/')
-    })
-    .catch(error => console.error(error))
-})
+// // Get  
+// app.get('/', async(request, response)=>{
+//     let shotData = await db.collection("shot-data").find().limit(1).sort({currentTime:-1}).toArray();
+//     console.log(shotData)
+//     response.render('index.ejs', { lastShot: shotData[0] })
+// })
 
-//Server
-app.listen(process.env.PORT || PORT, function(){
-    console.log(`listening on ${PORT}`)
-})
-    
-
+// // Post
+// app.post('/add', (req, res) => {
+//     db.collection('shot-data').insertOne(req.body)
+//     .then(result => {
+//         console.log(req.body)
+//         res.redirect('/')
+//     })
+//     .catch(error => console.error(error))
+// })
