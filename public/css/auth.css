@@ -24,8 +24,6 @@
 
   h1 {
     font-size: 5rem;
-    width: 80%;
-    text-align: center;
   }
 
   h2 {
@@ -36,6 +34,7 @@
     font-size: 3.5rem;
     width: 80%;
     text-align: center;
+    font-weight: bold;
   }
 
   a {
@@ -61,11 +60,14 @@
 }
 
 .infoHeader {
+    width: 60%;
+    margin: 5rem auto 0 auto;
+}
+
+.home {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60%;
-    margin: 5rem auto 0 auto;
 }
 
 .logo {
@@ -81,6 +83,12 @@
     width: 60%;
     margin: 0 auto;
     height: 500px;
+}
+
+.tagline {
+    padding: 1rem 3rem;
+    width: 85%;
+    text-align: center;
 }
 
 .buttonWrapper {
@@ -118,12 +126,23 @@ input {
     border-radius: 0 0 10px 10px;
 }
 
+.tagline {
+    background-color: rgba(147, 193, 191, .7);
+    border-radius: 10px;
+}
+
+.tagline p {
+    font-family: 'Basic', sans-serif;
+    font-size: 2rem;
+    padding: 3rem;
+}
+
 input {
     font-family: 'Basic', sans-serif;
     font-size: 2rem;
     border: none;
-    color: white;
-    background-color: rgba(188, 222, 234, 0.7);
+    color: #293044;
+    background-color: rgba(188, 222, 234, 0.5);
     padding: 1rem;
     border-radius: 5px;
     width: 30rem;
@@ -131,11 +150,12 @@ input {
 }
 
 input::placeholder {
-    color: #293044;
+    color: rgba(255, 255, 255, .8);
 }
 
 input[type="submit"] {
     background-color: #2B3A67;
+    color: white;
     margin-top: 3rem;
 }
 
@@ -145,4 +165,13 @@ input[type="submit"] {
 
 .lightBlueBack {
     background-color: #8FCCE1;
+}
+
+.alert-danger {
+    font-family: 'Basic', sans-serif;
+    font-size: 2rem;
+    text-decoration: underline;
+    background-color: #90B38F;
+    color: #2B3A67;
+    padding: .5rem;
 }
