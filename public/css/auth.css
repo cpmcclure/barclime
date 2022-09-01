@@ -13,7 +13,7 @@
   
   body {
     color: white;
-    background: #93C1BF;
+    background: rgba(147, 193, 191, .8);
   }
 
   h1,
@@ -46,6 +46,10 @@
     width: 100%;
     text-align: center;
     border-radius: 5px;
+  }
+
+  .shadow {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   }
 
 /******************************************
@@ -116,6 +120,7 @@ input {
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+
 .infoHeader {
     background-color: #2B3A67;
     border-radius: 10px 10px 0 0;
