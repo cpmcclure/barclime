@@ -1,9 +1,6 @@
 const mongoose = require('mongoose')
 
 const ShotDataSchema = new mongoose.Schema({
-  userID: {
-    type: String,
-  },
   grind: {
     type: Number,
     required: true,
@@ -38,6 +35,10 @@ const ShotDataSchema = new mongoose.Schema({
   },
   humid: {
     type: Number,
+    required: true
+  },
+  userId: {
+    type: String,
     required: true
   }
 },

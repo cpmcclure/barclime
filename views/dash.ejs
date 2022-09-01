@@ -68,7 +68,7 @@
 					</div>
 					<div class="fieldRow">
 						<label for="roastDate">Roast Date:</label>
-						<input type="date" name="roastDate" id="roastDate" value="<%= lastShot.roastDate %>">
+						<input type="date" name="roastDate" id="roastDate" value="<%= lastShot.roastDate.toISOString().split('T')[0] %>">
 					</div>
 					<input type="datetime-local" name="currentTime" id="currentTime" hidden>
 					<input type="number" name="tempIn" id="tempIn" step=".01" hidden>

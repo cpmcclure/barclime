@@ -14,10 +14,9 @@ module.exports = {
     getShotData: async(req, res)=>{
         console.log(req.user)
         try{
-            // let shotData = await db.collection("shot-data").find().limit(1).sort({currentTime:-1}).toArray();
-            let shotData = await ShotData.findOne({userId:req.user.id})
-            console.log(shotData)
-            res.render('dash.ejs', { lastShot: shotData ?? {
+            console.log(req.user.id)
+            let shotData = await ShotData.find({userId:req.user.id})
+            res.render('dash.ejs', { lastShot: shotData.at(-1) ?? {
                 grind: 5.5,
                 dose: 23,
                 weight: 38,
