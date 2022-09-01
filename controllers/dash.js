@@ -12,22 +12,24 @@ module.exports = {
         }
     },
     getShotData: async(req, res)=>{
+        console.log(req.user)
         try{
             // let shotData = await db.collection("shot-data").find().limit(1).sort({currentTime:-1}).toArray();
-            let shotData = await ShotData.findOne({userId:req.user.id, currentTime:-1}) || {
+            let shotData = await ShotData.findOne({userId:req.user.id})
+            console.log(shotData)
+            res.render('dash.ejs', { lastShot: shotData ?? {
                 grind: 5.5,
                 dose: 23,
                 weight: 38,
                 time: 25,
                 roastDate: "0000-00-00"
-            }
-            console.log(shotData)
-            res.render('dash.ejs', { lastShot: shotData })
+            } })
         }catch(err){
             console.log(err)
         }
     },
     addShotData: async(req, res) => {
+        console.log(req.user.id)
         try{
             await ShotData.create({
                 userId: req.user.id,
