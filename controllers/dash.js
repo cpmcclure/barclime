@@ -1,27 +1,26 @@
 const ShotData = require('../models/ShotData')
 
 module.exports = {
-    getTodos: async (req,res)=>{
-        console.log(req.user)
-        try{
-            const todoItems = await Todo.find({userId:req.user.id})
-            const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
-            res.render('todos.ejs', {todos: todoItems, left: itemsLeft, user: req.user})
-        }catch(err){
-            console.log(err)
+    getProfile: async (req, res) => {
+        try {
+          const data = await ShotData.find({ user: req.user.id });
+          res.render("profile.ejs", { data: data, user: req.user });
+        } catch (err) {
+          console.log(err);
         }
-    },
+      },
     getShotData: async(req, res)=>{
         console.log(req.user)
         try{
             console.log(req.user.id)
             let shotData = await ShotData.find({userId:req.user.id})
+            console.log(shotData)
             res.render('dash.ejs', { lastShot: shotData.at(-1) ?? {
                 grind: 5.5,
                 dose: 23,
                 weight: 38,
                 time: 25,
-                roastDate: "0000-00-00"
+                roastDate: new Date().toISOString().split('T')[0]
             } })
         }catch(err){
             console.log(err)

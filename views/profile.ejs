@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Barclime</title>
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com"> 
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+		<link href="https://fonts.googleapis.com/css2?family=Basic&family=Cairo&display=swap" rel="stylesheet">
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+
+		<section class="center">
+			
+			<nav class="header">
+				<a href="/dash">
+                    <h1>BarClime</h1>
+                </a>
+			</nav>
+
+			<section>
+                <h2><%= user.userName %></h2>
+            </section>
+			</section>
+
+		</section>
+
+        <!-- This will show data! -->
+        <section>
+            <ul class="row list-unstyled">
+                <% for(var i=0; i<data.length; i++) {%>
+                  <li>
+                    A shot!
+                    <!-- <a href="/shotdata/<%= data[i]._id%>">
+                    </a> -->
+                  </li>
+                <% } %>
+                </ul>
+        </section>
+
+
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
