@@ -4,7 +4,9 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
+// express-flash is used for the password / email errors
 const flash = require('express-flash')
+// morgan logs information about requests automatically
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
@@ -19,8 +21,10 @@ connectDB()
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+// This allows access to send and receive json
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+// serup Morgan to run
 app.use(logger('dev'))
 // Sessions
 app.use(
@@ -33,9 +37,11 @@ app.use(
   )
   
 // Passport middleware
+// start passport
 app.use(passport.initialize())
+// use sessions
 app.use(passport.session())
-
+// setup flash alerts
 app.use(flash())
   
 app.use('/', mainRoutes)
