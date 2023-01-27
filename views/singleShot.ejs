@@ -21,52 +21,21 @@
 		<section class="center">
 			
 			<nav class="header">
-				<a href="/dash" class="headerLink">
+				<a href="/shot" class="headerLink">
                     <h1>BarClime</h1>
                 </a>
 			</nav>
 
-			<section class="userInfo">
-                <h3><%= user.userName %></h3>
-                <section class="col-2">
-                    <section class="leftText">
-                        <ul>
-                            <li class="col-2">
-                                <%= user.email %>
-                                <button class="editButton">edit</button>
-                            </li>
-                            <li>
-                                <%= user.firstName %>
-                                <button class="editButton">edit</button>
-                            </li>
-                            <li>
-                                <%= user.LastName %>
-                                <button class="editButton">edit</button>
-                            </li>
-                            <li>
-                                <%= user.zipCode %>
-                                <button class="editButton">edit</button>
-                            </li>
-                        </ul>
-                    </section>
-                    <section class="leftText"> Here's another section?</section>
-                </section>
-            </section>
-			</section>
-
-		</section>
-
         <!-- This will show data! -->
         <section>
             <ul class="center shotDisplay">
-                <% for(var i=0; i < data.length; i++) {%>
                   <li class="shotItem">
                     <section class="col-2">
-                        <h3><%= data[i].currentTime.toISOString().split('T')[0] %></h3>
+                        <h3><%= data[0].currentTime.toISOString().split('T')[0] %></h3>
                         <section class="twoButtons">
                             <button class="editButton">Edit</button>
                             <form
-          action="/shot/deleteShotData/<%= data[i]._id %>?_method=DELETE"
+          action="/shot/deleteShotData/<%= data[0]._id %>?_method=DELETE"
           method="POST"
           class="col-3"
         >
@@ -83,17 +52,14 @@
                             <th>Roast Date</th>
                         </tr>
                        <tr>
-                            <td><%= data[i].grind %></td>
-                            <td><%= data[i].dose %></td>
-                            <td><%= data[i].weight %></td>
-                            <td><%= data[i].time %></td>
-                            <td><%= data[i].roastDate.toISOString().split('T')[0] %></td>
+                            <td><%= data[0].grind %></td>
+                            <td><%= data[0].dose %></td>
+                            <td><%= data[0].weight %></td>
+                            <td><%= data[0].time %></td>
+                            <td><%= data[0].roastDate.toISOString().split('T')[0] %></td>
                        </tr> 
                     </table>
-                    <!-- <a href="/shotdata/<%= data[i]._id%>">
-                    </a> -->
                   </li>
-                <% } %>
                 </ul>
         </section>
 

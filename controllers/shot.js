@@ -1,6 +1,16 @@
 const ShotData = require('../models/ShotData')
 
 module.exports = {
+    getShot: async (req, res) => {
+      try {
+          console.log(`Hello ${req.user.id}`)
+          let shotData = await ShotData.find({_id: req.params.id})
+          console.log(shotData)
+        res.render("singleShot.ejs", { data: shotData, user: req.user });
+      } catch (err) {
+        console.log(err);
+      }
+    },
     getProfile: async (req, res) => {
         try {
             console.log(`Hello ${req.user.id}`)
