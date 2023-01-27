@@ -3,12 +3,36 @@ const ShotData = require('../models/ShotData')
 module.exports = {
     getProfile: async (req, res) => {
         try {
-            console.log(req.user.id)
+            console.log(`Hello ${req.user.id}`)
             let shotData = await ShotData.find({userId:req.user.id})
             console.log(shotData)
           res.render("profile.ejs", { data: shotData, user: req.user });
         } catch (err) {
           console.log(err);
+        }
+      },
+    editShotData: async (req, res) => {
+        try {
+            console.log(req.params.id)
+            let shotData = await ShotData.find({_id: req.params.id})
+            console.log(shotData)
+        }
+        catch(err) {
+            console.log(err)
+        }
+      },
+    deletePost: async (req, res) => {
+        try {
+          // Find post by id
+          let post = await ShotData.findById({ _id: req.params.id });
+          // Delete image from cloudinary
+        //   await cloudinary.uploader.destroy(post.cloudinaryId);
+          // Delete post from db
+          await ShotData.remove({ _id: req.params.id });
+          console.log("Deleted Post");
+          res.redirect("/profile");
+        } catch (err) {
+          res.redirect("/profile");
         }
       },
     getShotData: async(req, res)=>{
@@ -17,7 +41,7 @@ module.exports = {
             console.log(req.user.id)
             let shotData = await ShotData.find({userId:req.user.id})
             console.log(shotData)
-            res.render('dash.ejs', { lastShot: shotData.at(-1) ?? {
+            res.render('shot.ejs', { lastShot: shotData.at(-1) ?? {
                 grind: 5.5,
                 dose: 23,
                 weight: 38,

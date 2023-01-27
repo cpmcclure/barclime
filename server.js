@@ -8,9 +8,11 @@ const MongoStore = require('connect-mongo')(session)
 const flash = require('express-flash')
 // morgan logs information about requests automatically
 const logger = require('morgan')
+// method override allows us to put multiple methods in the form action and process which kind in the server
+const methodOverride = require("method-override");
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
-const dashRoutes = require('./routes/dash')
+const dashRoutes = require('./routes/shot')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -26,6 +28,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 // serup Morgan to run
 app.use(logger('dev'))
+// Use forms for put / delete
+app.use(methodOverride("_method"));
 // Sessions
 app.use(
     session({
@@ -45,7 +49,7 @@ app.use(passport.session())
 app.use(flash())
   
 app.use('/', mainRoutes)
-app.use('/dash', dashRoutes)
+app.use('/shot', dashRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log(`Server is running on ${process.env.PORT}, you better catch it!`)
