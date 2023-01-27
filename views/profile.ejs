@@ -21,13 +21,13 @@
 		<section class="center">
 			
 			<nav class="header">
-				<a href="/dash">
+				<a href="/dash" class="headerLink">
                     <h1>BarClime</h1>
                 </a>
 			</nav>
 
 			<section>
-                <h2><%= user.userName %></h2>
+                <h3><%= user.userName %></h3>
             </section>
 			</section>
 
@@ -35,10 +35,27 @@
 
         <!-- This will show data! -->
         <section>
-            <ul class="row list-unstyled">
+            <ul>
                 <% for(var i=0; i<data.length; i++) {%>
                   <li>
-                    A shot!
+                    <table>
+                        <tr>
+                            <th>Date</th>
+                            <th>Grind</th>
+                            <th>Dose</th>
+                            <th>Weight</th>
+                            <th>Time</th>
+                            <th>Roast Date</th>
+                        </tr>
+                       <tr>
+                            <td><%= data[i].currentTime.toISOString().split('T')[0] %></td>
+                            <td><%= data[i].grind %></td>
+                            <td><%= data[i].dose %></td>
+                            <td><%= data[i].weight %></td>
+                            <td><%= data[i].time %></td>
+                            <td><%= data[i].roastDate.toISOString().split('T')[0] %></td>
+                       </tr> 
+                    </table>
                     <!-- <a href="/shotdata/<%= data[i]._id%>">
                     </a> -->
                   </li>
