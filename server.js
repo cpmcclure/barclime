@@ -12,7 +12,7 @@ const logger = require('morgan')
 const methodOverride = require("method-override");
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
-const dashRoutes = require('./routes/shot')
+const shotRoutes = require('./routes/shot')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -49,7 +49,7 @@ app.use(passport.session())
 app.use(flash())
   
 app.use('/', mainRoutes)
-app.use('/shot', dashRoutes)
+app.use('/shot', shotRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log(`Server is running on ${process.env.PORT}, you better catch it!`)

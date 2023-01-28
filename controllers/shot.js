@@ -78,7 +78,7 @@ module.exports = {
                 humid: req.body.humidIn
                 })
             console.log('ShotData has been added!')
-            res.redirect('/dash')
+            res.redirect('/shot')
         }catch(err){
             console.log(err)
         }

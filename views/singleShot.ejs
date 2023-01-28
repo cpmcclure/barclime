@@ -36,9 +36,7 @@
                             <button class="editButton">Edit</button>
                             <form
           action="/shot/deleteShotData/<%= data[0]._id %>?_method=DELETE"
-          method="POST"
-          class="col-3"
-        >
+          method="POST">
                                 <button class="editButton deleteButton" type="submit">Delete</button>
                             </form>
                         </section>
@@ -57,8 +55,31 @@
                             <td><%= data[0].weight %></td>
                             <td><%= data[0].time %></td>
                             <td><%= data[0].roastDate.toISOString().split('T')[0] %></td>
-                       </tr> 
+                       </tr>
                     </table>
+                    <form action="/shot/editShotData/<%= data[0]._id %>?_method=PUT"
+                        method="POST">
+                        <table class="editTable">
+                            <tr>
+                                <td>
+                                    <input type="number" name="grind" id="grind" min="1" max="10" step=".1" value="<% data[0].grind %>">
+                                </td>
+                                <td>
+                                    <input type="number" name="dose" id="dose" min="20.0" max="26.0" step=".1" value="<% data[0].dose %>">
+                                </td>
+                                <td>
+                                    <input type="number" name="weight" id="weight" min="34" max="42" step=".1" value="<% data[0].weight %>">
+                                </td>
+                                <td>
+                                    <input type="number" name="time" id="time" min="20" max="30" step="1" value="<% data[0].time %>">
+                                </td>
+                                <td>
+                                    <input type="date" name="roastDate" id="roastDate" value="<% data[0].roastDate %>">
+                                </td>
+                            </tr>
+                        </table>
+                        <button class="editButton" type="submit">Update</button>
+                    </form>
                   </li>
                 </ul>
         </section>
