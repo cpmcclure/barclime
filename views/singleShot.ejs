@@ -13,8 +13,8 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 		<link href="https://fonts.googleapis.com/css2?family=Basic&family=Cairo&display=swap" rel="stylesheet">
 		<!-- external CSS link -->
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="../css/reset.css">
+		<link rel="stylesheet" href="../css/style.css">
 	</head>
 	<body>
 
@@ -62,19 +62,19 @@
                         <table class="editTable">
                             <tr>
                                 <td>
-                                    <input type="number" name="grind" id="grind" min="1" max="10" step=".1" value="<% data[0].grind %>">
+                                    <input type="number" name="grind" id="grind" min="1" max="10" step=".1" value="<%= data[0].grind %>">
                                 </td>
                                 <td>
-                                    <input type="number" name="dose" id="dose" min="20.0" max="26.0" step=".1" value="<% data[0].dose %>">
+                                    <input type="number" name="dose" id="dose" min="20.0" max="26.0" step=".1" value="<%= data[0].dose %>">
                                 </td>
                                 <td>
-                                    <input type="number" name="weight" id="weight" min="34" max="42" step=".1" value="<% data[0].weight %>">
+                                    <input type="number" name="weight" id="weight" min="34" max="42" step=".1" value="<%= data[0].weight %>">
                                 </td>
                                 <td>
-                                    <input type="number" name="time" id="time" min="20" max="30" step="1" value="<% data[0].time %>">
+                                    <input type="number" name="time" id="time" min="20" max="30" step="1" value="<%= data[0].time %>">
                                 </td>
                                 <td>
-                                    <input type="date" name="roastDate" id="roastDate" value="<% data[0].roastDate %>">
+                                    <input type="date" name="roastDate" id="roastDate" value="<%= data[0].roastDate.toISOString().split('T')[0] %>">
                                 </td>
                             </tr>
                         </table>
@@ -83,8 +83,5 @@
                   </li>
                 </ul>
         </section>
-
-
-		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>

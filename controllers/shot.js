@@ -24,8 +24,19 @@ module.exports = {
     editShotData: async (req, res) => {
         try {
             console.log(req.params.id)
-            let shotData = await ShotData.find({_id: req.params.id})
-            console.log(shotData)
+            console.log(req.body)
+            await ShotData.updateOne(
+              { _id: req.params.id },
+              {
+                grind:req.body.grind,
+                dose: req.body.dose,
+                weight: req.body.weight,
+                time: req.body.time,
+                roastDate: req.body.roastDate
+              }
+            );
+            console.log("Data updated");
+            res.redirect(`/shot/${req.params.id}`);
         }
         catch(err) {
             console.log(err)
@@ -33,11 +44,6 @@ module.exports = {
       },
     deletePost: async (req, res) => {
         try {
-          // Find post by id
-          let post = await ShotData.findById({ _id: req.params.id });
-          // Delete image from cloudinary
-        //   await cloudinary.uploader.destroy(post.cloudinaryId);
-          // Delete post from db
           await ShotData.remove({ _id: req.params.id });
           console.log("Deleted Post");
           res.redirect("/profile");
