@@ -63,7 +63,7 @@ th {
 }
 
 .display > span {
-  font-size: 4rem;
+  font-size: 5rem;
 }
 
 .inches {
@@ -103,7 +103,13 @@ h1 {
 .header {
   width: 100%;
   text-align: center;
-  padding: 25px 0 10px 0;
+  padding: 7px;
+}
+
+.profileIcon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
 }
 
 .headerLink {
@@ -124,6 +130,9 @@ h1 {
   padding: 10px 0;
 } */
 
+.weather {
+  padding: 10px 20px;
+}
 
 .display {
   display: flex;
@@ -132,6 +141,7 @@ h1 {
   flex-basis: 30%;
   padding: 0 0 10px;
   border-radius: 10px;
+  margin: 10px;
 }
 
 .display h4 {
@@ -139,7 +149,7 @@ h1 {
   text-align: center;
   padding: 10px;
   border-radius: 10px 10px 0 0;
-  margin: 0 0 0 15px;
+  margin-bottom: 10px;
 }
 
 span {
@@ -176,7 +186,7 @@ span {
   justify-content: space-around;
   align-content: space-around; */
   gap: 15px;
-  padding: 15px 0;
+  padding: 10px 0;
 }
 
 .fieldRow > label {
@@ -264,6 +274,10 @@ img{
   background-color: #2B3A67;
 }
 
+.fa-user-circle {
+  color: white;
+}
+
 .weather {
   background: #496A81;
 }
@@ -272,7 +286,7 @@ img{
   background: #8FCCE1;
 }
 
-.display h3 {
+.display h4 {
   background-color: #2B3A67;
 }
 

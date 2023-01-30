@@ -1,97 +1,96 @@
 <%- include('partials/header') -%>
-    <section class="center">
-			<section class="userInfo">
-                <h3><%= user.userName %></h3>
-                <section class="col-2">
-                    <section class="leftText">
-                        <ul>
-                            <li class="col-2">
-                                <%= user.email %>
-                                <button class="editButton">edit</button>
-                            </li>
-                            <li>
-                                <%= user.firstName %>
-                                <button class="editButton">edit</button>
-                            </li>
-                            <li>
-                                <%= user.LastName %>
-                                <button class="editButton">edit</button>
-                            </li>
-                            <li>
-                                <%= user.zipCode %>
-                                <button class="editButton">edit</button>
-                            </li>
-                        </ul>
-                    </section>
-                    <section class="leftText"> Here's another section?</section>
-                </section>
+    <!-- <section class="userInfo">
+        <h3><%= user.userName %></h3>
+        <section class="col-2">
+            <section class="leftText">
+                <ul>
+                    <li class="col-2">
+                        <%= user.email %>
+                        <button class="editButton">edit</button>
+                    </li>
+                    <li>
+                        <%= user.firstName %>
+                        <button class="editButton">edit</button>
+                    </li>
+                    <li>
+                        <%= user.LastName %>
+                        <button class="editButton">edit</button>
+                    </li>
+                    <li>
+                        <%= user.zipCode %>
+                        <button class="editButton">edit</button>
+                    </li>
+                </ul>
             </section>
-			</section>
+            <section class="leftText"> Here's another section?</section>
+        </section>
+    </section> -->
 
-		</section>
 
         <!-- This will show data! -->
-        <section>
-            <ul class="center shotDisplay">
-                <% for(var i=0; i < data.length; i++) {%>
-                  <li class="shotItem">
-                    <section class="col-2">
-                        <a href="../shot/<%= data[i]._id %>">
-                            <h3><%= data[i].currentTime.toISOString().split('T')[0] %></h3>
-                        </a>
-                        <section class="twoButtons">
+    <section>
+        <ul class="center shotDisplay">
+            <% for(var i=0; i < data.length; i++) {%>
+                <li class="shotItem">
+                <section class="container">
+                    <section class="row">
+                        <section class="col-9">
+                            <a href="../shot/<%= data[i]._id %>">
+                                <h3><%= data[i].currentTime.toISOString().split('T')[0] %></h3>
+                            </a>
+                        </section>
+                        <section class="col-1">
                             <button class="editButton">Edit</button>
-                            <form
-          action="/shot/deleteShotData/<%= data[i]._id %>?_method=DELETE"
-          method="POST"
-          class="col-3"
-        >
+                        </section>
+                        <section class="col-1">
+                            <form action="/shot/deleteShotData/<%= data[i]._id %>?_method=DELETE" method="POST">
                                 <button class="editButton deleteButton" type="submit">Delete</button>
                             </form>
                         </section>
                     </section>
-                    <table class="shotTable">
+                </section>
+                <table class="shotTable">
+                    <tr>
+                        <th>Grind</th>
+                        <th>Dose</th>
+                        <th>Weight</th>
+                        <th>Time</th>
+                        <th>Roast Date</th>
+                    </tr>
+                    <tr>
+                        <td><%= data[i].grind %></td>
+                        <td><%= data[i].dose %></td>
+                        <td><%= data[i].weight %></td>
+                        <td><%= data[i].time %></td>
+                        <td><%= data[i].roastDate.toISOString().split('T')[0] %></td>
+                    </tr> 
+                </table>
+                <form action="/shot/editShotData/<%= data[0]._id %>?_method=PUT"
+                    method="POST">
+                    <table class="editTable">
                         <tr>
-                            <th>Grind</th>
-                            <th>Dose</th>
-                            <th>Weight</th>
-                            <th>Time</th>
-                            <th>Roast Date</th>
+                            <td>
+                                <input type="number" name="grind" id="grind" min="1" max="10" step=".1" value="<%= data[0].grind %>">
+                            </td>
+                            <td>
+                                <input type="number" name="dose" id="dose" min="20.0" max="26.0" step=".1" value="<%= data[0].dose %>">
+                            </td>
+                            <td>
+                                <input type="number" name="weight" id="weight" min="34" max="42" step=".1" value="<%= data[0].weight %>">
+                            </td>
+                            <td>
+                                <input type="number" name="time" id="time" min="20" max="30" step="1" value="<%= data[0].time %>">
+                            </td>
+                            <td>
+                                <input type="text" name="roastDate" id="roastDate" value="<%= data[0].roastDate.toISOString().split('T')[0] %>">
+                            </td>
                         </tr>
-                       <tr>
-                            <td><%= data[i].grind %></td>
-                            <td><%= data[i].dose %></td>
-                            <td><%= data[i].weight %></td>
-                            <td><%= data[i].time %></td>
-                            <td><%= data[i].roastDate.toISOString().split('T')[0] %></td>
-                       </tr> 
                     </table>
-                    <form action="/shot/editShotData/<%= data[0]._id %>?_method=PUT"
-                        method="POST">
-                        <table class="editTable">
-                            <tr>
-                                <td>
-                                    <input type="number" name="grind" id="grind" min="1" max="10" step=".1" value="<%= data[0].grind %>">
-                                </td>
-                                <td>
-                                    <input type="number" name="dose" id="dose" min="20.0" max="26.0" step=".1" value="<%= data[0].dose %>">
-                                </td>
-                                <td>
-                                    <input type="number" name="weight" id="weight" min="34" max="42" step=".1" value="<%= data[0].weight %>">
-                                </td>
-                                <td>
-                                    <input type="number" name="time" id="time" min="20" max="30" step="1" value="<%= data[0].time %>">
-                                </td>
-                                <td>
-                                    <input type="date" name="roastDate" id="roastDate" value="<%= data[0].roastDate.toISOString().split('T')[0] %>">
-                                </td>
-                            </tr>
-                        </table>
-                        <button class="editButton" type="submit">Update</button>
-                    </form>
-                  </li>
-                <% } %>
-                </ul>
-        </section>
+                    <button class="editButton" type="submit">Update</button>
+                </form>
+                </li>
+            <% } %>
+            </ul>
+    </section>
 
 <%- include('partials/footer') -%>
