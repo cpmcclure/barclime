@@ -9,7 +9,7 @@ const flash = require('express-flash')
 // morgan logs information about requests automatically
 const logger = require('morgan')
 // method override allows us to put multiple methods in the form action and process which kind in the server
-const methodOverride = require("method-override");
+const methodOverride = require("method-override")
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const shotRoutes = require('./routes/shot')
