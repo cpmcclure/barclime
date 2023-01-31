@@ -33,6 +33,10 @@ const doseOut = document.querySelector('#doseOut')
 const weightOut = document.querySelector('#weightOut')
 const timeOut = document.querySelector('#timeOut')
 
+// const editWndw = document.querySelector('#editSection')
+// const editBtn = document.querySelector('#hideEdit')
+// editBtn.addEventListener('click', hideEdit())
+
 const zip = '04101'
 const key = 'ba1b4ca1617f4a2ea88192125220707&'
 
@@ -66,6 +70,10 @@ function setSliderDisplay(){
     weightOut.textContent = weight.value
     timeOut.textContent = time.value
 }
+
+// function hideEdit(){
+//     editWndw.classList.toggle('hidden');
+// }
 
 window.onload = setSliderDisplay()
 window.onload = getWeather()
