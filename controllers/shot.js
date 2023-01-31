@@ -62,8 +62,8 @@ module.exports = {
                 dose: 23,
                 weight: 38,
                 time: 25,
-                roastDate: new Date().toISOString().split('T')[0]
-            } })
+                roastDate: new Date("2023-01-22T00:00:00.000Z")
+                          } })
         }catch(err){
             console.log(err)
         }

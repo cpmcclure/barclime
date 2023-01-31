@@ -37,13 +37,16 @@ const User = require('../models/User')
   }
   
   exports.logout = (req, res) => {
-    req.logout()
-    req.session.destroy((err) => {
-      if (err) console.log('Error : Failed to destroy the session during logout.', err)
-      req.user = null
-      res.redirect('/')
-    })
-  }
+    req.logout(function(err) {
+      if (err) { return next(err); }
+      // req.session.destroy((err) => {
+      //   if (err) console.log('Error : Failed to destroy the session during logout.', err)
+      //   req.user = null
+      //   res.redirect('/')
+      // })
+      res.redirect('/');
+    }
+  )}
   
   exports.getSignup = (req, res) => {
     if (req.user) {
