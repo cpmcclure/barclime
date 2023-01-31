@@ -20,7 +20,8 @@ body {
 h1,
 h3,
 h4,
-.display > span {
+.display > span,
+a {
   font-family: 'Cairo', sans-serif;
 }
 
@@ -115,6 +116,13 @@ h1 {
 .headerLink {
   color: white;
   text-decoration: none;
+  text-transform: uppercase;
+}
+
+.logout {
+  position: absolute;
+  top: 48px;
+  left: 6.5px;
 }
 
 /* .col-2 {

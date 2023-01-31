@@ -14,7 +14,7 @@ module.exports = {
     getProfile: async (req, res) => {
         try {
             console.log(`Hello ${req.user.id}`)
-            let shotData = await ShotData.find({userId:req.user.id})
+            let shotData = await ShotData.find({userId:req.user.id}).sort({currentTime: -1})
             console.log(shotData)
           res.render("profile.ejs", { data: shotData, user: req.user });
         } catch (err) {
