@@ -251,15 +251,20 @@ img{
   border-radius: 5px;
 }
 
-.shotItem > .col-2 {
-  width: 100%;
-  justify-content: space-between;
+.shotTable {
+  width: 80%;
+  margin: 10px auto;
+  table-layout: fixed;
 }
 
-.shotTable {
-  align-self: center;
-  width: 70%;
-  margin-top: 1rem;
+.editTable {
+  width: 80%;
+  margin: 10px auto;
+  table-layout: fixed;
+}
+
+.editRoastDate {
+  width: 100%;
 }
 
 .userInfo > h3 {
@@ -319,6 +324,11 @@ img{
 
 .shotItem {
   background-color: #90B38F;
+}
+
+.shotTable {
+  border-collapse: collapse;
+  border-color: #2B3A67;
 }
 
 .editButton {

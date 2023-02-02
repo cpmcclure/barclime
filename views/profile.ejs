@@ -49,46 +49,52 @@
                         </section>
                     </section>
                 </section>
-                <table class="shotTable">
-                    <tr>
-                        <th>Grind</th>
-                        <th>Dose</th>
-                        <th>Weight</th>
-                        <th>Time</th>
-                        <th>Roast Date</th>
-                    </tr>
-                    <tr>
-                        <td><%= data[i].grind %></td>
-                        <td><%= data[i].dose %></td>
-                        <td><%= data[i].weight %></td>
-                        <td><%= data[i].time %></td>
-                        <td><%= data[i].roastDate.toISOString().split('T')[0] %></td>
-                    </tr> 
-                </table>
-                <section id="editSection">
-                    <form action="/shot/editShotData/<%= data[i]._id %>?_method=PUT"
-                        method="POST">
-                        <table class="editTable">
+                <section class="row">
+                    <section class="col">
+                        <table class="shotTable">
                             <tr>
-                                <td>
-                                    <input type="number" name="grind" id="grind" min="1" max="10" step=".1" value="<%= data[i].grind %>">
-                                </td>
-                                <td>
-                                    <input type="number" name="dose" id="dose" min="20.0" max="26.0" step=".1" value="<%= data[i].dose %>">
-                                </td>
-                                <td>
-                                    <input type="number" name="weight" id="weight" min="34" max="42" step=".1" value="<%= data[i].weight %>">
-                                </td>
-                                <td>
-                                    <input type="number" name="time" id="time" min="20" max="30" step="1" value="<%= data[i].time %>">
-                                </td>
-                                <td>
-                                    <input type="text" name="roastDate" id="roastDate" value="<%= data[i].roastDate.toISOString().split('T')[0] %>">
-                                </td>
+                                <th>Grind</th>
+                                <th>Dose</th>
+                                <th>Weight</th>
+                                <th>Time</th>
+                                <th>Roast Date</th>
+                            </tr>
+                            <tr>
+                                <td><%= data[i].grind %></td>
+                                <td><%= data[i].dose %></td>
+                                <td><%= data[i].weight %></td>
+                                <td><%= data[i].time %></td>
+                                <td><%= data[i].roastDate.toISOString().split('T')[0] %></td>
                             </tr>
                         </table>
-                        <button class="editButton" type="submit">Update</button>
-                    </form>
+                    </section>
+                </section>
+                <section class="row" id="editSection">
+                    <section class="col">
+                        <form action="/shot/editShotData/<%= data[i]._id %>?_method=PUT"
+                            method="POST">
+                            <table class="editTable">
+                                <tr>
+                                    <td>
+                                        <input type="number" name="grind" id="grind" min="1" max="10" step=".1" value="<%= data[i].grind %>">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="dose" id="dose" min="20.0" max="26.0" step=".1" value="<%= data[i].dose %>">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="weight" id="weight" min="34" max="42" step=".1" value="<%= data[i].weight %>">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="time" id="time" min="20" max="30" step="1" value="<%= data[i].time %>">
+                                    </td>
+                                    <td>
+                                        <input class="editRoastDate" type="text" name="roastDate" id="roastDate" value="<%= data[i].roastDate.toISOString().split('T')[0] %>">
+                                    </td>
+                                </tr>
+                            </table>
+                            <button class="editButton" type="submit">Update</button>
+                        </form>
+                    </section>
                 </section>
                 </li>
             <% } %>
