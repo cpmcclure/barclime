@@ -6,15 +6,13 @@
                     <section class="container">
                         <section class="row">
                             <section class="col-9">
-                                <a href="../shot/<%= data[i]._id %>" class="headerLink">
-                                    <h3><%= data[0].currentTime.toISOString().split('T')[0] %></h3>
-                                </a>
+                                <h3><%= data[0].currentTime.toISOString().split('T')[0] %></h3>
                             </section>
                             <section class="col-1">
                                 <button id="hideEdit" class="editButton">Edit</button>
                             </section>
                             <section class="col-1">
-                                <form action="/shot/deleteShotData/<%= data[i]._id %>?_method=DELETE" method="POST">
+                                <form action="/shot/deleteShotData/<%= data[0]._id %>?_method=DELETE" method="POST">
                                     <button class="editButton deleteButton" type="submit">Delete</button>
                                 </form>
                             </section>
