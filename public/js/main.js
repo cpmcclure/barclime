@@ -13,7 +13,7 @@
 // getWeather()
 
 const button = document.querySelector('#submitButton')
-button.addEventListener('click', getWeather)
+button && button.addEventListener('click', getWeather)
 
 const press = document.querySelector('#pressure')
 const temp = document.querySelector('#temperature')
@@ -33,9 +33,9 @@ const doseOut = document.querySelector('#doseOut')
 const weightOut = document.querySelector('#weightOut')
 const timeOut = document.querySelector('#timeOut')
 
-// const editWndw = document.querySelector('#editSection')
-// const editBtn = document.querySelector('#hideEdit')
-// editBtn.addEventListener('click', hideEdit())
+const editWndw = document.querySelector('#editSection')
+const editBtn = document.querySelector('#hideEdit')
+editBtn.addEventListener('click', hideEdit)
 
 const zip = '04101'
 const key = 'ba1b4ca1617f4a2ea88192125220707&'
@@ -71,9 +71,9 @@ function setSliderDisplay(){
     timeOut.textContent = time.value
 }
 
-// function hideEdit(){
-//     editWndw.classList.toggle('hidden');
-// }
+function hideEdit(){
+    editWndw.classList.toggle('hidden');
+}
 
 window.onload = setSliderDisplay()
 window.onload = getWeather()
