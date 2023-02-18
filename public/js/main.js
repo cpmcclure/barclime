@@ -35,7 +35,7 @@ const timeOut = document.querySelector('#timeOut')
 
 const editWndw = document.querySelector('#editSection')
 const editBtn = document.querySelector('#hideEdit')
-editBtn.addEventListener('click', hideEdit)
+editBtn && editBtn.addEventListener('click', hideEdit)
 
 const zip = '04101'
 const key = 'ba1b4ca1617f4a2ea88192125220707&'
