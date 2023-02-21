@@ -1,7 +1,7 @@
 const Header = () => {
     return (
         <nav className="header">
-            <a href="../profile" class="profileIcon">
+            <a href="../profile" className="profileIcon">
                 <i className="fa fa-user-circle fa-3x" aria-hidden="true"></i>
             </a>
             <a href="../logout" className="logout headerLink">Logout</a>

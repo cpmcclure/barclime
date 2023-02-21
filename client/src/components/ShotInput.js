@@ -52,7 +52,7 @@ const ShotInput = ( { lastGrind, lastDose, lastWeight, lastTime, lastRoastDate }
                      />
                 </div>
             </fieldset>
-            <button type="submit" class="formButton" id="submitButton">Add</button>
+            <button type="submit" className="formButton" id="submitButton">Add</button>
         </form>
     )
 }
