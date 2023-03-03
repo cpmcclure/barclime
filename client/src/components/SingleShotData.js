@@ -11,7 +11,7 @@ const SingleShotData = ({ id, grind, dose, weight, time, roastDate, currentTime 
                     <section className="container">
                         <section className="row">
                             <section className="col-9">
-                                <a href={`../shot/${id}`} class="headerLink">
+                                <a href={`../shot/${id}`} className="headerLink">
                                     <h3>{currentTime}</h3>
                                 </a>
                             </section>
@@ -28,20 +28,22 @@ const SingleShotData = ({ id, grind, dose, weight, time, roastDate, currentTime 
                     <section className="row">
                         <section className="col">
                             <table className="shotTable">
-                                <tr>
-                                    <th>Grind</th>
-                                    <th>Dose</th>
-                                    <th>Weight</th>
-                                    <th>Time</th>
-                                    <th>Roast Date</th>
-                                </tr>
-                                <tr>
-                                    <td>{grind}</td>
-                                    <td>{dose}</td>
-                                    <td>{weight}</td>
-                                    <td>{time}</td>
-                                    <td>{roastDate}</td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <th>Grind</th>
+                                        <th>Dose</th>
+                                        <th>Weight</th>
+                                        <th>Time</th>
+                                        <th>Roast Date</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{grind}</td>
+                                        <td>{dose}</td>
+                                        <td>{weight}</td>
+                                        <td>{time}</td>
+                                        <td>{roastDate}</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </section>
                     </section>
