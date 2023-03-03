@@ -1,4 +1,9 @@
-const ShotData = ({ id, grind, dose, weight, time, roastDate, currentTime }) => {
+import { useState } from 'react'
+import EditShot from './EditShot'
+
+const SingleShotData = ({ id, grind, dose, weight, time, roastDate, currentTime }) => {
+    const [showEdit, setShowEdit] = useState(false)
+    
     return(
         <section>
             <ul className="center shotDisplay">
@@ -11,7 +16,7 @@ const ShotData = ({ id, grind, dose, weight, time, roastDate, currentTime }) => 
                                 </a>
                             </section>
                             <section className="col-1">
-                                <button id="hideEdit" className="editButton">Edit</button>
+                                <button id="hideEdit" className="editButton" onClick={() => setShowEdit(!showEdit)}>Edit</button>
                             </section>
                             <section className="col-1">
                                 <form action={`/shot/deleteShotData/${id}?_method=DELETE`} method="POST">
@@ -40,37 +45,11 @@ const ShotData = ({ id, grind, dose, weight, time, roastDate, currentTime }) => 
                             </table>
                         </section>
                     </section>
-                    <section className="row hidden" id="editSection">
-                        <section className="col">
-                            <form action={`/shot/editShotData/${id}?_method=PUT`}
-                                method="POST">
-                                <table className="editTable">
-                                    <tr>
-                                        <td>
-                                            <input type="number" name="grind" id="grind" min="1" max="10" step=".1" />
-                                        </td>
-                                        <td>
-                                            <input type="number" name="dose" id="dose" min="20.0" max="26.0" step=".1" />
-                                        </td>
-                                        <td>
-                                            <input type="number" name="weight" id="weight" min="34" max="42" step=".1" />
-                                        </td>
-                                        <td>
-                                            <input type="number" name="time" id="time" min="20" max="30" step="1" />
-                                        </td>
-                                        <td>
-                                            <input class="editRoastDate" type="text" name="roastDate" id="roastDate" />
-                                        </td>
-                                    </tr>
-                                </table>
-                                <button className="editButton" type="submit">Update</button>
-                            </form>
-                        </section>
-                    </section>
+                    {showEdit && <EditShot id={id} />}
                   </li>
                 </ul>
         </section>
     )
 }
 
-export default ShotData
+export default SingleShotData
