@@ -8,7 +8,7 @@ import MultiShotData from './components/MultiShotData';
 
 
 const App = () => {
-  
+
   const shots = [
     {
       id: "62dc51cdc364c8c92b394888",
@@ -48,7 +48,7 @@ const App = () => {
             path='/'
             element={
               <>
-                <WeatherDisplay />
+                <WeatherDisplay temp="65" pressure="32" humidity="54"/>
                 <ShotInput lastGrind="1" lastDose="22" lastWeight="39.5" lastTime="23"/>
               </>
             }
