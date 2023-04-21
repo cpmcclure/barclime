@@ -32,7 +32,8 @@ module.exports = {
                 dose: req.body.dose,
                 weight: req.body.weight,
                 time: req.body.time,
-                roastDate: req.body.roastDate
+                roastDate: req.body.roastDate,
+                tastingNotes: req.body.tastingNotes
               }
             );
             console.log("Data updated");
@@ -78,6 +79,7 @@ module.exports = {
                 weight: req.body.weight,
                 time: req.body.time,
                 roastDate: req.body.roastDate,
+                tastingNotes: req.body.tastingNotes,
                 currentTime: req.body.currentTime,
                 temp: req.body.tempIn,
                 press: req.body.pressIn,
@@ -89,21 +91,4 @@ module.exports = {
             console.log(err)
         }
     }, 
-    addNotes: async (req, res) => {
-      try {
-          console.log(req.params.id)
-          console.log(req.body)
-          await ShotData.updateOne(
-            { _id: req.params.id },
-            {
-              tastingNotes: req.body.tastingNotes
-            }
-          );
-          console.log("Tasting notes added");
-          res.redirect(`/shot/${req.params.id}`);
-      }
-      catch(err) {
-          console.log(err)
-      }
-    },
 }    
