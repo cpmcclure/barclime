@@ -21,6 +21,9 @@ const ShotDataSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
+  tastingNotes: {
+    type: Array
+  },
   currentTime: {
     type: Date,
     required: true
