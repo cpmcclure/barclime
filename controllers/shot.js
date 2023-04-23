@@ -33,7 +33,7 @@ module.exports = {
                 weight: req.body.weight,
                 time: req.body.time,
                 roastDate: req.body.roastDate,
-                tastingNotes: req.body.tastingNotes
+                tastingNotes: req.body.tastingNotes.split(', ')
               }
             );
             console.log("Data updated");
@@ -71,6 +71,7 @@ module.exports = {
     },
     addShotData: async(req, res) => {
         console.log(req.user.id)
+        console.log(req.body)
         try{
             await ShotData.create({
                 userId: req.user.id,
@@ -79,7 +80,7 @@ module.exports = {
                 weight: req.body.weight,
                 time: req.body.time,
                 roastDate: req.body.roastDate,
-                tastingNotes: req.body.tastingNotes,
+                tastingNotes: req.body.tastingNotes.split(', '),
                 currentTime: req.body.currentTime,
                 temp: req.body.tempIn,
                 press: req.body.pressIn,

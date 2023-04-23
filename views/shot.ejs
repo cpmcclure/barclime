@@ -45,6 +45,10 @@
 						<label for="roastDate">Roast Date:</label>
 						<input type="date" name="roastDate" id="roastDate" value="<%= lastShot.roastDate.toISOString().split('T')[0] %>">
 					</div>
+					<div class="fieldRow">
+						<label for="tastingNotes"> Tasting Notes:</label>
+						<input type="text" name="tastingNotes" id="tastingNotes" placeholder="Enter comma separated tasting notes">
+					</div>
 					<input type="datetime-local" name="currentTime" id="currentTime" hidden>
 					<input type="number" name="tempIn" id="tempIn" step=".01" hidden>
 					<input type="number" name="pressIn" id="pressIn" step=".01" hidden>
