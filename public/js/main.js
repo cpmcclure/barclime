@@ -13,7 +13,7 @@
 // getWeather()
 
 const button = document.querySelector('#submitButton')
-button && button.addEventListener('click', getWeather)
+// button && button.addEventListener('click', getWeather)
 
 const press = document.querySelector('#pressure')
 const temp = document.querySelector('#temperature')
@@ -37,32 +37,32 @@ const editWndw = document.querySelector('#editSection')
 const editBtn = document.querySelector('#hideEdit')
 editBtn && editBtn.addEventListener('click', hideEdit)
 
-const zip = '04101'
-const key = 'ba1b4ca1617f4a2ea88192125220707&'
+// const zip = '04101'
+// const key = 'ba1b4ca1617f4a2ea88192125220707&'
 
-async function getWeather(){
-    const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${key}q=${zip}&days=1&aqi=no&alerts=no`)
-    const weather = await res.json()
-    // Get select weather data in both imperial and metric
-    const celsius= weather.current.temp_c
-    const fahrenheit = weather.current.temp_f
-    const millibars = weather.current.pressure_mb
-    const inches = weather.current.pressure_in
-    const humidity = weather.current.humidity
+// async function getWeather(){
+//     const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${key}q=${zip}&days=1&aqi=no&alerts=no`)
+//     const weather = await res.json()
+//     // Get select weather data in both imperial and metric
+//     const celsius= weather.current.temp_c
+//     const fahrenheit = weather.current.temp_f
+//     const millibars = weather.current.pressure_mb
+//     const inches = weather.current.pressure_in
+//     const humidity = weather.current.humidity
 
-    // Set display values
-    press.textContent = inches.toFixed(1) + 'in'
-    temp.textContent = fahrenheit + 'º'
-    humid.textContent = humidity + '%'
+//     // Set display values
+//     press.textContent = inches.toFixed(1) + 'in'
+//     temp.textContent = fahrenheit + 'º'
+//     humid.textContent = humidity + '%'
 
-    // Set form values
-    let now = new Date().toISOString().split(':').slice(0, 2).join(':')
-    console.log(now)
-    dateIn.value = now
-    tempIn.value = fahrenheit
-    pressIn.value = inches
-    humidIn.value = humidity
-}
+//     // Set form values
+//     let now = new Date().toISOString().split(':').slice(0, 2).join(':')
+//     console.log(now)
+//     dateIn.value = now
+//     tempIn.value = fahrenheit
+//     pressIn.value = inches
+//     humidIn.value = humidity
+// }
 
 function setSliderDisplay(){
     grindOut.textContent = grind.value
@@ -76,4 +76,4 @@ function hideEdit(){
 }
 
 window.onload = setSliderDisplay()
-window.onload = getWeather()
+// window.onload = getWeather()

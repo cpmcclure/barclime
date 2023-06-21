@@ -1,12 +1,17 @@
 const ShotData = require('../models/ShotData')
+const superagent = require('superagent')
+require('dotenv').config({path: './config/.env'})
 
 module.exports = {
     getShot: async (req, res) => {
       try {
           console.log(`Hello ${req.user.id}`)
           let shotData = await ShotData.find({_id: req.params.id})
+          let weatherRaw = await superagent.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHERKEY}q=${process.env.ZIP}&days=1&aqi=no&alerts=no`)
+          let weatherData = await JSON.parse(weatherRaw)
+          // let shopClimate = await fetch(RPIADDRESS)
           console.log(shotData)
-        res.render("singleShot.ejs", { data: shotData, user: req.user });
+        res.render("singleShot.ejs", { data: shotData, user: req.user, localWeather: weatherData });
       } catch (err) {
         console.log(err);
       }
@@ -57,14 +62,16 @@ module.exports = {
         try{
             console.log(req.user.id)
             let shotData = await ShotData.find({userId:req.user.id})
+            let lastShot = await shotData.at(-1) ?? {
+              grind: 5.5,
+              dose: 23,
+              weight: 38,
+              time: 25,
+              roastDate: new Date("2023-01-22T00:00:00.000Z")}
+            let weatherData = await superagent.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHERKEY}q=${process.env.ZIP}&days=1&aqi=no&alerts=no`)
+            console.log(weatherData._body)
             console.log(shotData)
-            res.render('shot.ejs', { lastShot: shotData.at(-1) ?? {
-                grind: 5.5,
-                dose: 23,
-                weight: 38,
-                time: 25,
-                roastDate: new Date("2023-01-22T00:00:00.000Z")
-                          } })
+            res.render('shot.ejs', { user: req.user, localWeather: weatherData._body.current, lastShot: lastShot })
         }catch(err){
             console.log(err)
         }
@@ -81,7 +88,7 @@ module.exports = {
                 time: req.body.time,
                 roastDate: req.body.roastDate,
                 tastingNotes: req.body.tastingNotes.split(', '),
-                currentTime: req.body.currentTime,
+                currentTime: new Date().toISOString().split(':').slice(0, 2).join(':'),
                 temp: req.body.tempIn,
                 press: req.body.pressIn,
                 humid: req.body.humidIn

@@ -3,15 +3,15 @@
 			<section class="row">
 				<section class="col display">
 					<h4>Temp</h4>
-					<span id="temperature"></span>
+					<span id="temperature"><%= localWeather.temp_f %>º</span>
 				</section>
 				<section class="col display">
 					<h4>Pressure</h4>
-					<span id="pressure"></span>
+					<span id="pressure"><%= localWeather.pressure_in %>in</span>
 				</section>
 				<section class="col display">
 					<h4>Humidity</h4>
-					<span id="humidity"></span>
+					<span id="humidity"><%= localWeather.humidity %>%</span>
 				</section>
 			</section>
 		</section>
