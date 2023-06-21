@@ -7,11 +7,8 @@ module.exports = {
       try {
           console.log(`Hello ${req.user.id}`)
           let shotData = await ShotData.find({_id: req.params.id})
-          let weatherRaw = await superagent.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHERKEY}q=${process.env.ZIP}&days=1&aqi=no&alerts=no`)
-          let weatherData = await JSON.parse(weatherRaw)
-          // let shopClimate = await fetch(RPIADDRESS)
           console.log(shotData)
-        res.render("singleShot.ejs", { data: shotData, user: req.user, localWeather: weatherData });
+        res.render("singleShot.ejs", { data: shotData, user: req.user});
       } catch (err) {
         console.log(err);
       }

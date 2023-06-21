@@ -50,9 +50,9 @@
 						<input type="text" name="tastingNotes" id="tastingNotes" placeholder="Enter comma separated tasting notes">
 					</div>
 					<input type="datetime-local" name="currentTime" id="currentTime" hidden>
-					<input type="number" name="tempIn" id="tempIn" step=".01" hidden>
-					<input type="number" name="pressIn" id="pressIn" step=".01" hidden>
-					<input type="number" name="humidIn" id="humidIn" step=".01" hidden>
+					<input type="number" name="tempIn" id="tempIn" step=".01" value="<%= localWeather.temp_f %>" hidden>
+					<input type="number" name="pressIn" id="pressIn" step=".01" value="<%= localWeather.pressure_in %>" hidden>
+					<input type="number" name="humidIn" id="humidIn" step=".01" value="<%= localWeather.humidity %>" hidden>
 					<button type="submit" class="formButton" id="submitButton">Add</button>
 				</fieldset>
 			</form>
