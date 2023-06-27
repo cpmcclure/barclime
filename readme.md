@@ -38,8 +38,8 @@
 
   <p align="center">
     Creating better coffee with data and curiosity
-    <br />
-    <a href="https://github.com/cpmcclure/barclime"><strong>Explore the docs »</strong></a>
+    <!-- <br />
+    <a href="https://github.com/cpmcclure/barclime"><strong>Explore the docs »</strong></a> -->
     <br />
     <br />
     <a href="https://github.com/cpmcclure/barclime/issues">Report Bug</a>
@@ -129,7 +129,11 @@ In order to use the local weather feature, get a free API key from [https://www.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Current use is to track shot parameters and local weather data for making espresso. The goal is to better understand how climate affects the process, while building up data to better understand how to dial in, and what you like in a shot.
+To get the server for Barclime running on you local machine, run either `npm run start` or `npm run dev` to reun the server with nodemon, which will automatically restart the server when changes are made.
+
+Go to the port you chose in a browser (localhost:port) to get to the app. Create an account and password (this info will be stored on your mongodb, password will be encrypted). Enter the info for your first shot and start tracking data!
+
+To view shot data click the profile picture in the top left corner. This isn't intuitive and will be updated soon.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
