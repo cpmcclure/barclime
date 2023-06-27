@@ -65,11 +65,11 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <!-- <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
+    <li><a href="#license">License</a></li> -->
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <!-- <li><a href="#acknowledgments">Acknowledgments</a></li> -->
   </ol>
 </details>
 
@@ -80,7 +80,13 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `cpmcclure`, `barclime`, `cp_mcclure`, `cpmcclure`, `gmail`, `c.patrick.mcclure`, `barclime`, `Creating better coffee with data and curiosity`
+Barclime exists as a project to tinker with, and hopefully provide baristas with an app to track espresso data and learn more about creating delicious coffee.
+
+Most baristas know that shot parameters, such as grind, dosage, weight and extraction time, need to change throughout the day to get a good shot of espresso. Many have experienced the sudden, unexpected shift in how shots pull – whether due to equipment issues, weather changes or movin to a new roast date. The goal of barclime is to be able to track everything we can to better understand what changes to make when things start to go wrong, and find out where the issues might lie.
+
+Currently, barclime allows users to track shot parameters (grind, dose, extraction time, shot weight, roast date and tasting notes), as well as local weather data and time of day. This data is stored in the user profile for future reference.
+
+Long term goals include an in-shop raspberry pi server to track temperature, humidity and pressure within the shop itself, a network to connect baristas within the same shop to share data and machine updates, a taster's wheel interface for adding tasting notes, graph views of data, and machine learning to suggest parameters for better shots.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -90,8 +96,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Currently the only way to use Barclime is to install it on your mahcine locally.
 
 ### Prerequisites
 
@@ -124,16 +129,14 @@ In order to use the local weather feature, get a free API key from [https://www.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+Current use is to track shot parameters and local weather data for making espresso. The goal is to better understand how climate affects the process, while building up data to better understand how to dial in, and what you like in a shot.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- ROADMAP -->
-## Roadmap
+<!-- ## Roadmap
 
 - [ ] Feature 1
 - [ ] Feature 2
@@ -142,12 +145,12 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 See the [open issues](https://github.com/cpmcclure/barclime/issues) for a full list of proposed features (and known issues).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+<!-- ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -160,38 +163,38 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
 <!-- LICENSE -->
-## License
+<!-- ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+ -->
 
 
 <!-- CONTACT -->
-## Contact
+<!-- ## Contact
 
-Your Name - [@cp_mcclure](https://twitter.com/cp_mcclure) - c.patrick.mcclure@gmail.com
+Chris McClure - [@cp_mcclure](https://twitter.com/cp_mcclure) - c.patrick.mcclure@gmail.com
 
 Project Link: [https://github.com/cpmcclure/barclime](https://github.com/cpmcclure/barclime)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+<!-- ## Acknowledgments
 
 * []()
 * []()
 * []()
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
