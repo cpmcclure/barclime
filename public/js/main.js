@@ -33,7 +33,7 @@ const doseOut = document.querySelector('#doseOut')
 const weightOut = document.querySelector('#weightOut')
 const timeOut = document.querySelector('#timeOut')
 
-const editWndw = document.querySelector('#editSection')
+const editWndw = document.querySelectorAll('.editSection')
 const editBtn = document.querySelectorAll('.hideEdit')
 editBtn && Array.from(editBtn).forEach(el => el.addEventListener('click', hideEdit))
 
