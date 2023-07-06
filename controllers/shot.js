@@ -65,7 +65,7 @@ module.exports = {
               weight: 38,
               time: 25,
               roastDate: new Date("2023-01-22T00:00:00.000Z")}
-            let weatherData = await superagent.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHERKEY}q=${process.env.ZIP}&days=1&aqi=no&alerts=no`)
+            let weatherData = await superagent.get(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHERKEY}&q=${process.env.ZIP}&days=1&aqi=no&alerts=no`)
             console.log(weatherData._body)
             console.log(shotData)
             res.render('shot.ejs', { user: req.user, localWeather: weatherData._body.current, lastShot: lastShot })
