@@ -40,7 +40,7 @@
                             </a>
                         </section>
                         <section class="col-1">
-                            <button class="editButton hideEdit data-shot<%= i %>">Edit</button>
+                            <button class="editButton hideEdit edit<%= i %>">Edit</button>
                         </section>
                         <section class="col-1">
                             <form action="/shot/deleteShotData/<%= data[i]._id %>?_method=DELETE" method="POST">
@@ -61,6 +61,7 @@
                                 <th>Temp</th>
                                 <th>Pressure</th>
                                 <th>Humidity</th>
+                                <th>Tasting Notes</th>
                             </tr>
                             <tr>
                                 <td><%= data[i].grind %></td>
@@ -71,11 +72,12 @@
                                 <td><%= data[i].temp %></td>
                                 <td><%= data[i].press %></td>
                                 <td><%= data[i].humid %></td>
+                                <td><%= data[i].tastingNotes.join(', ') %></td>
                             </tr>
                         </table>
                     </section>
                 </section>
-                <section class="row hidden editSection data-edit<%= i %>">
+                <section class="row hidden editSection edit<%= i %>">
                     <section class="col">
                         <form action="/shot/editShotData/<%= data[i]._id %>?_method=PUT"
                             method="POST">

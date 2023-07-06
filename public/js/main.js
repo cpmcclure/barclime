@@ -35,7 +35,7 @@ const timeOut = document.querySelector('#timeOut')
 
 const editWndw = document.querySelectorAll('.editSection')
 const editBtn = document.querySelectorAll('.hideEdit')
-editBtn && Array.from(editBtn).forEach(el => el.addEventListener('click', hideEdit))
+editBtn && Array.from(editBtn).forEach((el, i) => el.addEventListener('click', hideEdit(i)))
 
 function setSliderDisplay(){
     grindOut.textContent = grind.value
@@ -44,7 +44,7 @@ function setSliderDisplay(){
     timeOut.textContent = time.value
 }
 
-function hideEdit(){
+function hideEdit(i){
     editWndw.classList.toggle('hidden');
 }
 

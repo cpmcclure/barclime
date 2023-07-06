@@ -1,4 +1,5 @@
 const ShotData = require('../models/ShotData')
+const User = require('../models/User')
 const superagent = require('superagent')
 require('dotenv').config({path: './config/.env'})
 
@@ -21,6 +22,26 @@ module.exports = {
           res.render("profile.ejs", { data: shotData, user: req.user });
         } catch (err) {
           console.log(err);
+        }
+      },
+      editProfile: async (req, res) => {
+        try {
+            console.log(req.params.id)
+            console.log(req.body)
+            await ShotData.updateOne(
+              { _id: req.user.id },
+              {
+                email: req.body.email,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                zipCode: req.body.zipCode
+              }
+            );
+            console.log("Data updated");
+            res.redirect(`/profile`);
+        }
+        catch(err) {
+            console.log(err)
         }
       },
     editShotData: async (req, res) => {
