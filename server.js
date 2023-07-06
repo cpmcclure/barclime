@@ -13,6 +13,7 @@ const methodOverride = require("method-override")
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const shotRoutes = require('./routes/shot')
+const profileRoutes = require('./routes/profile')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -50,6 +51,7 @@ app.use(flash())
   
 app.use('/', mainRoutes)
 app.use('/shot', shotRoutes)
+app.use('/profile', profileRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log(`Server is running on ${process.env.PORT}, you better catch it!`)
