@@ -71,6 +71,9 @@ const User = require('../models/User')
   
     const user = new User({
       userName: req.body.userName,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      zipCode: req.body.zipCode,
       email: req.body.email,
       password: req.body.password
     })
